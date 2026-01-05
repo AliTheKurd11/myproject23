@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+   stack<br>
+
+    #include <iostream><br>
+using namespace std;<br>
+#define MAX 5<br>
+
+int  stack[MAX];<br>
+int top = -1;<br>
+
+void push(int x)<br>
+{
+	if (top == MAX-1)<br>
+	{<br>
+		cout << "Stack Overflow" << endl;<br>
+		
+	}
+	else {<br>
+		top++;<br>
+		stack[top] = x;<br>
+	}<br>
+}<br>
+
+int pop(void)<br>
+{<br>
+int x;<br>
+if (top == -1) <br>
+{<br>
+	cout << "Stack Underflow" << endl;<br>
+	return(-99999);<br>
+}<br>
+else {<br>
+	x = stack[top];<br>
+	top--;<br>
+
+	return(x);<br>
+}<br>
+}<br>
+
+int main()<br>
+{<br>
+	int a;<br>
+	push(24);<br>
+	push(47);<br>
+	push(65);<br>
+
+	a = pop();<br>
+	if(a!= -99999)	cout<<a<<endl; <br>
+	a = pop();<br>
+	if (a != -99999)	cout << a << endl;<br>
+	a = pop();<br>
+	if (a != -99999)	cout << a << endl;<br>
+	a = pop();<br>
+	if (a != -99999)	cout << a << endl;<br>
+   }<br>
+   <br>
+-------------------------------------------------------------<br>
+Linear Queue<br>
+
+#include <iostream><br>
+using namespace std;<br>
+#define max 10<br>
+
+float queue[max];<br>
+int front=0, rear=-1;<br>
+
+void enlqueue(float x)<br>
+{
+    if (rear == max - 1)<br>
+    {<br>
+        cout << "Queue is FULL" << endl;<br>
+    }<br>
+    else {<br>
+        rear++;<br>
+        queue[rear] = x;<br>
+    }<br>
+
+}<br>
+
+
+
+float delqueue(void)<br>
+{<br>
+    if ((rear == -1) || (front > rear))<br>
+    {<br>
+        cout << "Queue is Empty" << endl;<br>
+        return(-9999);<br>
+    }<br>
+    else {<br>
+        float x;<br>
+        x = queue[front];<br>
+        front++;<br>
+        return(x);<br>
+    }<br>
+}<br>
+
+int main()<br>
+{<br>
+    enlqueue(23.9);<br>
+    enlqueue(94.33);<br>
+    enlqueue(36.2);<br>
+    enlqueue(45.08);<br>
+
+   cout<< delqueue()<<endl;    <br> 
+    cout<<delqueue()<<endl;<br>
+    cout<<delqueue()<<endl;<br>
+    
+}<br>
+<br><br>
+ ---------------------------------------------------------------<br>
+Circular Queue<br>
+
+
+
+#include <iostream><br>
+using namespace std;<br>
+#define MAX 10<br>
+
+char queue[MAX];<br>
+int front = -1, rear = -1;<br>
+
+void encqueue(char x)<br>
+{
+	if ((front == 0) && (rear == MAX - 1) || (front == rear + 1))<br>
+	{
+		cout << "Queue is FULL" << endl;<br>
+		return;<br>
+	}
+	else if (front == -1)<br>
+	{
+		front = 0;<br>
+		rear = 0;<br>
+	}
+	else if (rear == MAX - 1) rear = 0;<br>
+	else rear++;<br>
+
+	queue[rear] = x;<br>
+
+}<br>
+
+char decqueue()<br>
+{<br>
+	int x;<br>
+
+	if (front == -1)<br>
+	{<br>
+		cout << "The Queue is EMPTY!" << endl;<br>
+		return('@');<br>
+	}<br>
+	else {<br>
+		x = queue[front];<br>
+
+		if (front == MAX - 1) front = 0;<br>
+		else if (front == rear)<br>
+		{<br>
+			front = -1;<br>
+			rear = -1;<br>
+		}
+		else front++;<br>
+
+		return (x);<br>
+	}<br>
+}<br>
+
+int main()<br>
+{<br>
+	encqueue('H');<br>
+	encqueue('O');<br>
+	encqueue('M');<br>
+	encqueue('z');<br>
+
+	cout << decqueue() << endl;<br>
+	cout << decqueue() << endl;<br>
+	cout << decqueue() << endl;<br>
+    }<br>
+
+
+
+
+
+</body>
+</html>
